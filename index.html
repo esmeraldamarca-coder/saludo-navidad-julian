@@ -114,7 +114,10 @@
 </head>
 <body>
   <audio id="musica" src="musica-navidad.mp3" loop></audio>
-  <div id="overlay" style="position:fixed;inset:0;z-index:10;cursor:pointer;"></div>
+  <div id="overlay"
+     style="position:fixed;inset:0;z-index:10;cursor:pointer;
+            background:transparent;"
+     onclick="iniciarMusica()"></div>
   <div class="card">
     <h1>🎄 Feliz Navidad, Te desea 🎄</h1>
     <h2>Julian Cuyutupac<br> </h2>
@@ -141,7 +144,20 @@
 
   <script>
     const audio = document.getElementById('musica');
-    const overlay = document.getElementById('overlay');
+
+  function iniciarMusica() {
+    audio.volume = 0.4;
+    audio.play().catch(() => {});
+    document.getElementById('overlay').style.display = 'none';
+  }
+
+  function toggleMusica() {
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }
 
     // Reproduce música en el PRIMER clic del usuario (cumple políticas móviles)
     overlay.addEventListener('click', () => {
@@ -170,4 +186,5 @@
   </script>
 </body>
 </html>
+
 

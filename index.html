@@ -1,190 +1,120 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Saludo Navideño</title>
+  <meta charset="UTF-8">
+  <title>Julian Cuyutupac – Un mensaje para nuestro distrito</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0f3c2d, #1e7f5c);
-      color: #ffffff;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #8e1c1c, #c0392b);
+      color: white;
+      text-align: center;
       min-height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 40px 30px;
+    .container {
+      background: rgba(0, 0, 0, 0.35);
+      padding: 30px 20px;
+      border-radius: 18px;
       max-width: 420px;
       width: 90%;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-      animation: fadeIn 1.2s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     }
 
     h1 {
-      font-size: 2rem;
+      font-size: 1.8em;
       margin-bottom: 10px;
     }
 
-    h2 {
-      font-size: 1.1rem;
-      font-weight: 400;
-      margin-bottom: 25px;
-    }
-
     p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 30px;
-    }
-
-    .buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
+      font-size: 1.05em;
+      line-height: 1.5;
+      margin-bottom: 20px;
     }
 
     .btn {
+      display: block;
+      width: 100%;
       padding: 14px;
-      border-radius: 30px;
+      margin: 10px 0;
+      font-size: 1em;
+      font-weight: bold;
       border: none;
-      font-size: 1rem;
+      border-radius: 12px;
       cursor: pointer;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
     }
 
     .btn-primary {
-      background: #ffd166;
-      color: #1a1a1a;
-      font-weight: 600;
+      background: #f1c40f;
+      color: #000;
     }
 
     .btn-secondary {
-      background: transparent;
-      border: 2px solid #ffd166;
-      color: #ffd166;
+      background: #ffffff;
+      color: #000;
     }
 
-    .btn::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: rgba(255,255,255,0.3);
-      transition: left 0.4s ease;
-    }
-
-    .btn:hover::after {
-      left: 100%;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
-    }
-
-    footer {
-      margin-top: 25px;
-      font-size: 0.85rem;
+    .footer {
+      font-size: 0.8em;
+      margin-top: 15px;
       opacity: 0.85;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
   </style>
 </head>
+
 <body>
-  <audio id="musica" src="musica-navidad.mp3" loop></audio>
-  <div id="overlay"
-     style="position:fixed;inset:0;z-index:10;cursor:pointer;
-            background:transparent;"
-     onclick="iniciarMusica()"></div>
-  <div class="card">
-    <h1>🎄 Feliz Navidad, Te desea 🎄</h1>
-    <h2>Julian Cuyutupac<br> </h2>
+
+  <div class="container">
+    <h1>Con el corazón puesto en nuestro distrito ❤️</h1>
 
     <p>
-     Hoy quiero llegar a tu hogar no como candidato, sino como un vecino más que sueña con un mejor futuro para <strong>Gregorio Albarracín Lanchipa</strong>.<br><br>
-  Que esta Navidad renueve la fe, fortalezca a nuestras familias y nos recuerde que unidos somos más fuertes. Sigamos construyendo esperanza, con trabajo, respeto y amor por nuestro distrito.
+      Soy <strong>Julian Cuyutupac</strong>.<br>
+      Creo firmemente que <strong>Gregorio Albarracín Lanchipa</strong> merece
+      una gestión cercana, humana y con verdadero compromiso.
     </p>
 
-    <div class="buttons">
-      <button class="btn btn-secondary" onclick="toggleMusica()">🎶 Activar / Pausar música</button>
-      <button class="btn btn-primary" onclick="mostrarMensaje()">
-        Ver mensaje del candidato
-      </button>
-      <button class="btn btn-secondary" onclick="irWhatsapp()">
-        Enviar buenos deseos
-      </button>
-    </div>
+    <p>
+      Hoy no te hablo como candidato, sino como vecino que ama su distrito
+      y quiere trabajar contigo por un futuro mejor.
+    </p>
 
-    <footer>
-      Con compromiso y cercanía ✨
-    </footer>
+    <button class="btn btn-primary" onclick="toggleMusica()">
+      🎶 Escuchar mensaje
+    </button>
+
+    <button class="btn btn-secondary">
+      🤝 Sigamos construyendo juntos
+    </button>
+
+    <div class="footer">
+      Julian Cuyutupac<br>
+      Un nuevo comienzo para nuestro distrito
+    </div>
   </div>
 
+  <!-- Música -->
+  <audio id="musica" src="musica.mp3" loop></audio>
+
+  <!-- Script -->
   <script>
     const audio = document.getElementById('musica');
 
-  function iniciarMusica() {
-    audio.volume = 0.4;
-    audio.play().catch(() => {});
-    document.getElementById('overlay').style.display = 'none';
-  }
-
-  function toggleMusica() {
-    if (audio.paused) {
-      audio.play();
-    } else {
-      audio.pause();
-    }
-  }
-
-    // Reproduce música en el PRIMER clic del usuario (cumple políticas móviles)
-    overlay.addEventListener('click', () => {
-      audio.play().catch(() => {});
-      overlay.remove(); // solo el primer clic
-    }, { once: true });
-
     function toggleMusica() {
+      audio.volume = 0.5;
+
       if (audio.paused) {
         audio.play();
       } else {
         audio.pause();
       }
-    } else {
-        audio.pause();
-      }
-    }
-
-    function mostrarMensaje() {
-      alert("Gracias por tu confianza. Esta Navidad reafirmo mi compromiso de trabajar con honestidad, cercanía y decisión por el desarrollo de Gregorio Albarracín Lanchipa, pensando siempre en nuestras familias y en el futuro de nuestros hijos.");
-    }
-
-    function irWhatsapp() {
-      window.open("https://wa.me/?text=Feliz%20Navidad%20y%20bendiciones%20para%20nuestra%20comunidad", "_blank");
     }
   </script>
+
 </body>
 </html>
-
-

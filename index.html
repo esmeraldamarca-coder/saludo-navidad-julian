@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saludo Navideño</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f3c2d, #1e7f5c);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px 30px;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      animation: fadeIn 1.2s ease;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 25px;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .btn {
+      padding: 14px;
+      border-radius: 30px;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: #ffd166;
+      color: #1a1a1a;
+      font-weight: 600;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid #ffd166;
+      color: #ffd166;
+    }
+
+    .btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.3);
+      transition: left 0.4s ease;
+    }
+
+    .btn:hover::after {
+      left: 100%;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    }
+
+    footer {
+      margin-top: 25px;
+      font-size: 0.85rem;
+      opacity: 0.85;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <audio id="musica" src="musica-navidad.mp3" loop></audio>
+  <div id="overlay" style="position:fixed;inset:0;z-index:10;cursor:pointer;"></div>
+  <div class="card">
+    <h1>🎄 Feliz Navidad 🎄</h1>
+    <h2>Julian Cuyutupac<br>Postulante a la Alcaldía de Gregorio Albarracín Lanchipa</h2>
+
+    <p>
+      Que esta Navidad renueve la esperanza en nuestros hogares,
+      fortalezca la unión entre vecinos y nos recuerde que juntos
+      podemos construir un futuro con más oportunidades y bienestar
+      para todos.
+    </p>
+
+    <div class="buttons">
+      <button class="btn btn-secondary" onclick="toggleMusica()">🎶 Activar / Pausar música</button>
+      <button class="btn btn-primary" onclick="mostrarMensaje()">
+        Ver mensaje del candidato
+      </button>
+      <button class="btn btn-secondary" onclick="irWhatsapp()">
+        Enviar buenos deseos
+      </button>
+    </div>
+
+    <footer>
+      Con compromiso y cercanía ✨
+    </footer>
+  </div>
+
+  <script>
+    const audio = document.getElementById('musica');
+    const overlay = document.getElementById('overlay');
+
+    // Reproduce música en el PRIMER clic del usuario (cumple políticas móviles)
+    overlay.addEventListener('click', () => {
+      audio.play().catch(() => {});
+      overlay.remove(); // solo el primer clic
+    }, { once: true });
+
+    function toggleMusica() {
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    } else {
+        audio.pause();
+      }
+    }
+
+    function mostrarMensaje() {
+      alert("Gracias por tu confianza. Esta Navidad reafirmo mi compromiso de trabajar con honestidad, cercanía y decisión por el desarrollo de Gregorio Albarracín Lanchipa, pensando siempre en nuestras familias y en el futuro de nuestros hijos.");
+    }
+
+    function irWhatsapp() {
+      window.open("https://wa.me/?text=Feliz%20Navidad%20y%20bendiciones%20para%20nuestra%20comunidad", "_blank");
+    }
+  </script>
+</body>
+</html>
